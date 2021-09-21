@@ -1,15 +1,22 @@
-//alert("Meu primeiro Js");
-var lista = ["maça", "Pera", "Laranja"]; //Lista
-//lista.push("Uva");                        Adiciona Uva a lista
-//lista.pop();                              Remove o ultimo elemento da lista
-//console.log(lista.length);                Retorna o tamanho da lista
-//console.log(lista.reverse());             Retorna os elementos da lista na ordem contrária
-console.log(lista);
+function consultaCEP(){
 
-var fruta = {nome:"maça", cor:"vermelha"} //Dicionário
-console.log(fruta);
-console.log(fruta.nome);
+    var cep = document.getElementById("cep").value;
+    var url = "https://viacep.com.br/ws/" + cep + "/json/";
+    console.log(cep);
 
-var frutas = [{nome:"maça", cor:"vermelha"}, {nome:"uva", cor:"roxa"}]; //Lista de dicionários
-console.log(frutas);
-console.log(frutas[1].nome);
+    $.ajax({
+        url: url,
+        type: "GET", 
+        success: function(response){
+            console.log(response);
+            $("#logradouro").html(response.logradouro);
+            $("#complemento").html(response.complemento);
+            $("#bairro").html(response.bairro);
+            $("#localidade").html(response.localidade);
+            //document.getElementById("logradouro").innerHTML = response.logradouro;
+            //document.getElementById("complemento").innerHTML = response.complemento;
+            //document.getElementById("bairro").innerHTML = response.bairro;
+            //document.getElementById("localidade").innerHTML = response.localidade;
+        }
+    })
+}
