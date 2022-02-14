@@ -1,2 +1,2 @@
 # Aula_JavaScript
-Projeto para estudar a linguagem JavaScript.
+Projeto desenvolvido com a finalidade de estudar o uso da linguagem JavaScript.
